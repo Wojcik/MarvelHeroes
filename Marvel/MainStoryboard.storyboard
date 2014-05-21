@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5023" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="v1t-vg-SWE">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <scene sceneID="8XL-tn-ULv">
+            <objects>
+                <tabBarController definesPresentationContext="YES" sceneMemberID="viewController" id="v1t-vg-SWE">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar contentMode="scaleToFill" id="SqQ-Gc-FMQ" key="tabBar">
+                        <rect key="frame" x="0" y="519" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="4Gg-n8-GNh" kind="relationship" relationship="viewControllers" id="NIm-X9-xBY"/>
+                        <segue destination="NOP-Ir-7tS" kind="relationship" relationship="viewControllers" id="UA1-Qn-ZEm"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" userLabel="First Responder" sceneMemberID="firstResponder" id="cxY-IF-LjK"/>
+            </objects>
+            <point key="canvasLocation" x="-49" y="-70"/>
+        </scene>
+        <scene sceneID="am3-M3-Lr1">
+            <objects>
+                <viewController sceneMemberID="viewController" id="4Gg-n8-GNh" customClass="CharacterViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2Mo-qJ-5Of"/>
+                        <viewControllerLayoutGuide type="bottom" id="ps9-at-wwM"/>
+                    </layoutGuides>
+                    <view contentMode="scaleToFill" id="2n2-iP-5Ej" key="view">
+                        <rect key="frame" x="0" y="0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem title="Item 1" id="lcH-J2-GqR" key="tabBarItem"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" userLabel="First Responder" sceneMemberID="firstResponder" id="D5t-Yi-yiq"/>
+            </objects>
+            <point key="canvasLocation" x="471" y="-394"/>
+        </scene>
+        <scene sceneID="iIs-UR-b7p">
+            <objects>
+                <viewController sceneMemberID="viewController" id="NOP-Ir-7tS">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8Xg-K4-FxV"/>
+                        <viewControllerLayoutGuide type="bottom" id="sTF-pB-Zlk"/>
+                    </layoutGuides>
+                    <view contentMode="scaleToFill" id="SIn-Og-bdt" key="view">
+                        <rect key="frame" x="0" y="0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem title="Item 2" id="dbZ-RK-IjT" key="tabBarItem"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" userLabel="First Responder" sceneMemberID="firstResponder" id="qlP-Jk-BWE"/>
+            </objects>
+            <point key="canvasLocation" x="471" y="254"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
