@@ -10,16 +10,22 @@
 		312D10F34D2190B486B9E83B /* AKNetworkManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 312D144726FF169E141C6EE2 /* AKNetworkManagerTests.m */; };
 		312D10F47660E8111263F30E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 312D11CFA18F7F3D5B159261 /* MainStoryboard.storyboard */; };
 		312D10FAF88B066FDEC80919 /* AKNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 312D18A2A2A23799D6349FBB /* AKNetworkManager.m */; };
+		312D1152950A1522FE20FF30 /* AKRequestPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 312D192D570A93AB7EA51592 /* AKRequestPair.m */; };
 		312D116F1BD7B5FFDB168E83 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312D1EE61AF3162FCC187D1F /* XCTest.framework */; };
 		312D1277ABBDCB0BC48F7916 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312D11D4BA0947AA633FC9D2 /* Foundation.framework */; };
 		312D1285EFB506841A626A3A /* AKCharactersLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 312D160B4CEEEA2C332EF9C8 /* AKCharactersLoader.m */; };
 		312D13B62179D898AE7D9431 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 312D13E284EE1751C8277A35 /* main.m */; };
+		312D160719132EF4B89A66FB /* AKRequestPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 312D192D570A93AB7EA51592 /* AKRequestPair.m */; };
+		312D16C51684B4AC718CE194 /* Character.json in Resources */ = {isa = PBXBuildFile; fileRef = 312D17738827CD8C883DE07B /* Character.json */; };
 		312D173689B37E43B0966E28 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 312D1738F6958088AE43B016 /* Images.xcassets */; };
 		312D1846D9E024F30A451723 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312D1A8F5A0C63845224868C /* CoreGraphics.framework */; };
 		312D18E94382A46574C02BBF /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 312D1F67FA2A27642B374655 /* Constants.m */; };
 		312D1A0F3E1D9A8962642B90 /* AKCharactersLoaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 312D14BB58034BB068D2B768 /* AKCharactersLoaderTests.m */; };
+		312D1A536138C6A7DF988212 /* AKRequestComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 312D11F042DE35A8F4503DD1 /* AKRequestComposer.m */; };
 		312D1A6EACC5493B3F335869 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312D1C396F2CE83C8A30EC0B /* UIKit.framework */; };
+		312D1B7CE09BEE17BA30CC5E /* AKRequestComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 312D11F042DE35A8F4503DD1 /* AKRequestComposer.m */; };
 		312D1B86AC973FA0370232DA /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 312D1F67FA2A27642B374655 /* Constants.m */; };
+		312D1C18BAE26B58DE664D59 /* AKRequestComposerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 312D1E4F5F73BB85D083D558 /* AKRequestComposerTests.m */; };
 		312D1C3C1CF92334626A7FE7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312D1C396F2CE83C8A30EC0B /* UIKit.framework */; };
 		312D1CABFFF8164F52EED5DB /* AKCharactersLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 312D160B4CEEEA2C332EF9C8 /* AKCharactersLoader.m */; };
 		312D1CAE4086275D780A7832 /* AKNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 312D18A2A2A23799D6349FBB /* AKNetworkManager.m */; };
@@ -45,10 +51,12 @@
 
 /* Begin PBXFileReference section */
 		1097D9DE4AA34195B42CB261 /* Pods-MarvelTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelTests.xcconfig"; path = "Pods/Pods-MarvelTests.xcconfig"; sourceTree = "<group>"; };
+		312D107F28BFBFAD5D45CDFF /* AKRequestComposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKRequestComposer.h; sourceTree = "<group>"; };
 		312D1125B14052927DD61FF2 /* AKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKAppDelegate.h; sourceTree = "<group>"; };
 		312D1182D8BC5263FB1495C1 /* Marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		312D11CFA18F7F3D5B159261 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		312D11D4BA0947AA633FC9D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		312D11F042DE35A8F4503DD1 /* AKRequestComposer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKRequestComposer.m; sourceTree = "<group>"; };
 		312D125809C47369CD60A69B /* CharacterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterViewController.m; sourceTree = "<group>"; };
 		312D12ED74B043F03E63E88F /* AKNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKNetworkManager.h; sourceTree = "<group>"; };
 		312D13E284EE1751C8277A35 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -63,13 +71,17 @@
 		312D16C04B409A16A1BE63EC /* CharacterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterViewController.h; sourceTree = "<group>"; };
 		312D1738F6958088AE43B016 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		312D173DCFC19CF2B5B4D822 /* MarvelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		312D17738827CD8C883DE07B /* Character.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = Character.json; sourceTree = "<group>"; };
 		312D17A4AD28CC5D9F15E4CB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		312D18A2A2A23799D6349FBB /* AKNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKNetworkManager.m; sourceTree = "<group>"; };
+		312D192D570A93AB7EA51592 /* AKRequestPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKRequestPair.m; sourceTree = "<group>"; };
 		312D1A8F5A0C63845224868C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		312D1C396F2CE83C8A30EC0B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		312D1C5B8E1B53236CB62974 /* Marvel-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "Marvel-Info.plist"; sourceTree = "<group>"; };
+		312D1D64538257BC9B37E9AA /* AKRequestPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKRequestPair.h; sourceTree = "<group>"; };
 		312D1DFAF8C791E5E48801D7 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		312D1E19FBDB1A455BD4B58E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		312D1E4F5F73BB85D083D558 /* AKRequestComposerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKRequestComposerTests.m; sourceTree = "<group>"; };
 		312D1EE61AF3162FCC187D1F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		312D1F255D79BD2672641E31 /* Marvel-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Marvel-Prefix.pch"; sourceTree = "<group>"; };
 		312D1F67FA2A27642B374655 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
@@ -115,6 +127,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		312D142106A5402479D394DA /* fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				312D17738827CD8C883DE07B /* Character.json */,
+			);
+			path = fixtures;
+			sourceTree = "<group>";
+		};
 		312D1506AAB094B1ED034A24 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +170,10 @@
 				312D12ED74B043F03E63E88F /* AKNetworkManager.h */,
 				312D160B4CEEEA2C332EF9C8 /* AKCharactersLoader.m */,
 				312D144D103A41E59A391663 /* AKCharactersLoader.h */,
+				312D192D570A93AB7EA51592 /* AKRequestPair.m */,
+				312D1D64538257BC9B37E9AA /* AKRequestPair.h */,
+				312D11F042DE35A8F4503DD1 /* AKRequestComposer.m */,
+				312D107F28BFBFAD5D45CDFF /* AKRequestComposer.h */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -199,6 +223,7 @@
 				312D1ADD11C3B4FE58440CAD /* Supporting Files */,
 				312D1500580D3C197AB28E67 /* MarvelTests.m */,
 				312D1EF19DBCEBDA6A0DB967 /* Network */,
+				312D142106A5402479D394DA /* fixtures */,
 			);
 			path = MarvelTests;
 			sourceTree = "<group>";
@@ -218,6 +243,7 @@
 			children = (
 				312D144726FF169E141C6EE2 /* AKNetworkManagerTests.m */,
 				312D14BB58034BB068D2B768 /* AKCharactersLoaderTests.m */,
+				312D1E4F5F73BB85D083D558 /* AKRequestComposerTests.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -308,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				312D1F0B39F96617447C0447 /* InfoPlist.strings in Resources */,
+				312D16C51684B4AC718CE194 /* Character.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +414,8 @@
 				312D1CAE4086275D780A7832 /* AKNetworkManager.m in Sources */,
 				312D1CABFFF8164F52EED5DB /* AKCharactersLoader.m in Sources */,
 				312D1D120058A81FD44F2BA7 /* CharacterViewController.m in Sources */,
+				312D160719132EF4B89A66FB /* AKRequestPair.m in Sources */,
+				312D1B7CE09BEE17BA30CC5E /* AKRequestComposer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +429,9 @@
 				312D10F34D2190B486B9E83B /* AKNetworkManagerTests.m in Sources */,
 				312D1285EFB506841A626A3A /* AKCharactersLoader.m in Sources */,
 				312D1A0F3E1D9A8962642B90 /* AKCharactersLoaderTests.m in Sources */,
+				312D1152950A1522FE20FF30 /* AKRequestPair.m in Sources */,
+				312D1C18BAE26B58DE664D59 /* AKRequestComposerTests.m in Sources */,
+				312D1A536138C6A7DF988212 /* AKRequestComposer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,17 +11,20 @@
 
 }
 
-- (void)loadCharacterWithId:(NSString *)characterId andCompletion:(void(^)(id character))completion
-{
+- (void)loadCharacterWithId:(NSString *)characterId andCompletion:(void (^)(id character))completion {
     NSParameterAssert(characterId);
     NSParameterAssert(completion);
     NSString *encoded = [characterId stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary *params =@{@"characters": encoded};
-    [[AKNetworkManager sharedManager] sendRequestWithParams:params WithSuccess:^(id JSON) {
+    NSDictionary *params = @{@"characters" : encoded};
+    void (^successBlock)(id) = ^(id JSON) {
         completion(JSON);
-    }                                            andFailure:^(NSError *error) {
+    };
+    void (^failureBlock)(NSError *) = ^(NSError *error) {
         completion(nil);
-    }];
+    };
+    [[AKNetworkManager sharedManager] sendRequestWithParams:params
+                                                WithSuccess:successBlock
+                                                 andFailure:failureBlock];
 }
 
 @end

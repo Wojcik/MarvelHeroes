@@ -29,6 +29,7 @@
 
 - (void)testOneCharacter
 {
+    __block id character = nil;
     [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
         NSString *url = [request.URL absoluteString];
         return [url isEqualToString:@"http://gateway.marvel.com/v1/public/characters/1009368?apikey=fb82139635150122c7e95c56127f1224"];
@@ -38,9 +39,11 @@
                                                    headers:@{@"Content-Type":@"application/json"}];
     }];
 
-    [self.loader loadCharacterWithId:@"1009368" andCompletion:^(id character) {
-        expect(character).notTo.beNil();
+    [self.loader loadCharacterWithId:@"1009368" andCompletion:^(id result) {
+        character = result;
     }];
+
+    expect(character).willNot.beNil();
 }
 
 @end

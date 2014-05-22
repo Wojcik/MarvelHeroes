@@ -34,8 +34,8 @@
     NSMutableDictionary *queryParams = [NSMutableDictionary dictionaryWithDictionary:@{@"apikey" : kPublicAPIKey,
             @"ts" : timeStampString,
             @"hash" : hash}];
-    queryParams = [queryParams addEntriesFromDictionary:params];
-    NSString *requestString = [NSString stringWithFormat:@"%@?apikey=%@", params, kPublicAPIKey];
+    [queryParams addEntriesFromDictionary:params];
+    NSString *requestString = [NSString stringWithFormat:@"%@?%@", params, kPublicAPIKey];
     NSURL *charUrl = [NSURL URLWithString:requestString relativeToURL:self.baseURL];
     NSURLRequest *request = [NSURLRequest requestWithURL:charUrl];
     NSString *url = [request.URL absoluteString];
