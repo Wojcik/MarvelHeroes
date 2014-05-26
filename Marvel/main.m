@@ -8,10 +8,23 @@
 
 #import "AKAppDelegate.h"
 
-int main(int argc, char * argv[])
+static bool isRunningTests()
 {
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AKAppDelegate class]));
-    }
+    NSDictionary* environment = [[NSProcessInfo processInfo] environment];
+    NSString* injectBundle = environment[@"XCInjectBundle"];
+    return [[injectBundle pathExtension] isEqualToString:@"xctest"];
+}
 
+int main(int argc, char *argv[])
+{
+    @autoreleasepool
+    {
+        if (isRunningTests())
+        {
+            return UIApplicationMain(argc, argv, nil, nil);
+        }
+        else {
+            return UIApplicationMain(argc, argv, nil, NSStringFromClass([AKAppDelegate class]));
+        }
+    }
 }

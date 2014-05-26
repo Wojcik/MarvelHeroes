@@ -19,8 +19,9 @@
     self.composer = [AKRequestComposer new];
 }
 
-+ (void)tearDown
+- (void)tearDown
 {
+    self.composer = nil;
     [super tearDown];
 }
 

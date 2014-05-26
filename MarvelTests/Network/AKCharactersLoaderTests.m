@@ -8,9 +8,15 @@
 
 #import <XCTest/XCTest.h>
 #import "AKCharactersLoader.h"
+#import "AKCharacter.h"
+#import "NSManagedObjectContext+Testing.h"
 
 @interface AKCharactersLoaderTests : XCTestCase
 @property (nonatomic, strong) AKCharactersLoader *loader;
+@end
+
+@interface AKCharactersLoaderTests ()
+@property(nonatomic, strong) NSManagedObjectContext *context;
 @end
 
 @implementation AKCharactersLoaderTests
@@ -18,7 +24,12 @@
 - (void)setUp
 {
     [super setUp];
-    self.loader = [AKCharactersLoader new];
+
+    NSError *error = nil;
+    self.context = [NSManagedObjectContext tetsInMemoryStorageError:&error];
+    expect(error).to.beNil();
+    expect(self.context).notTo.beNil();
+    self.loader = [AKCharactersLoader loaderWithContext:self.context];
 }
 
 - (void)tearDown
@@ -43,7 +54,10 @@
         character = result;
     }];
 
+
     expect(character).willNot.beNil();
+    expect([character class]).will.equal([AKCharacter class]);
+
 }
 
 @end

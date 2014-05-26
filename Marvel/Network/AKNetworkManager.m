@@ -5,7 +5,12 @@
 
 #import "AKNetworkManager.h"
 #import "Constants.h"
+#import "AKResponse.h"
 #import "NSString+Hashes.h"
+#import "AKRequestComposer.h"
+#import "AKResponse.h"
+#import "EKMapper.h"
+#import "AKResponseMappingProvider.h"
 
 
 @interface AKNetworkManager ()
@@ -24,7 +29,8 @@
     return  manager;
 }
 
-- (void)sendRequestWithParams:(NSDictionary *)params WithSuccess:(success_block_t)successBlock andFailure:(failure_block_t)failureBlock
+- (void)sendRequestWithPath:(NSString *)path params:(NSDictionary *)params
+                WithSuccess:(success_block_t)successBlock andFailure:(failure_block_t)failureBlock
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyyMMddHHmmss"];
@@ -35,7 +41,9 @@
             @"ts" : timeStampString,
             @"hash" : hash}];
     [queryParams addEntriesFromDictionary:params];
-    NSString *requestString = [NSString stringWithFormat:@"%@?%@", params, kPublicAPIKey];
+    AKRequestComposer *composer = [[AKRequestComposer alloc] init];
+    NSString *composedParams = [composer composeDictionary:queryParams];
+    NSString *requestString = [path stringByAppendingFormat:@"?%@", composedParams] ;
     NSURL *charUrl = [NSURL URLWithString:requestString relativeToURL:self.baseURL];
     NSURLRequest *request = [NSURLRequest requestWithURL:charUrl];
     NSString *url = [request.URL absoluteString];
@@ -45,7 +53,28 @@
         id json = [NSJSONSerialization JSONObjectWithData:data options:nil error:&jsonError];
         if (!jsonError)
         {
-            NSLog(@"%@", json);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                AKResponse *responseObject = [EKMapper objectFromExternalRepresentation:json
+                                                                            withMapping:[AKResponseMappingProvider mappingForResponse]];
+
+                if ([responseObject.statusCode intValue] != 200)
+                {
+                    NSDictionary *errorInfo = @{
+                            NSLocalizedDescriptionKey        : @"Request failed",
+                            NSLocalizedFailureReasonErrorKey : @"Use debug. Not completed yet"
+                    };
+                    NSError *apiError = [NSError errorWithDomain:@"MarvelApiError"
+                                                            code:10001000
+                                                        userInfo:errorInfo];
+                    failureBlock(apiError);
+                }
+                else
+                {
+                    successBlock(responseObject);
+                }
+            });
+
+
         }
     }];
     [dataTask resume];

@@ -3,28 +3,44 @@
 // Copyright (c) 2014 ___FULLUSERNAME___. All rights reserved.
 //
 
+#import <CoreData/CoreData.h>
 #import "AKCharactersLoader.h"
 #import "AKNetworkManager.h"
+#import "AKCharacter.h"
+#import "EKObjectMapping.h"
+#import "EKManagedObjectMapping.h"
+#import "EKManagedObjectMapper.h"
+#import "AKMappingProvider.h"
+#import "AKResponse.h"
 
 
 @implementation AKCharactersLoader {
 
 }
 
-- (void)loadCharacterWithId:(NSString *)characterId andCompletion:(void (^)(id character))completion {
+- (void)loadCharacterWithId:(NSString *)characterId andCompletion:(void (^)(AKCharacter *character))completion {
     NSParameterAssert(characterId);
     NSParameterAssert(completion);
-    NSString *encoded = [characterId stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary *params = @{@"characters" : encoded};
-    void (^successBlock)(id) = ^(id JSON) {
-        completion(JSON);
+    void (^successBlock)(id) = ^(AKResponse *response) {
+        NSDictionary *characterRepresentation =  response.results.lastObject;
+        AKCharacter *character = [EKManagedObjectMapper objectFromExternalRepresentation:characterRepresentation
+                                                                             withMapping:[AKMappingProvider characterMapping]
+                                                                  inManagedObjectContext:self.context];
+        completion(character);
     };
     void (^failureBlock)(NSError *) = ^(NSError *error) {
         completion(nil);
     };
-    [[AKNetworkManager sharedManager] sendRequestWithParams:params
-                                                WithSuccess:successBlock
-                                                 andFailure:failureBlock];
+    [[AKNetworkManager sharedManager]
+            sendRequestWithPath:[NSString stringWithFormat:@"characters/%@", characterId] params:nil
+                    WithSuccess:successBlock andFailure:failureBlock];
+}
+
++ (instancetype)loaderWithContext:(NSManagedObjectContext *)context
+{
+    AKCharactersLoader *loader = [AKCharactersLoader new];
+    loader.context = context;
+    return loader;
 }
 
 @end

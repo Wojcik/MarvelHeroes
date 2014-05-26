@@ -6,11 +6,15 @@
 //  Copyright (c) 2014 Anton Kovalev. All rights reserved.
 //
 
+#import <CoreData/CoreData.h>
 #import "CharacterViewController.h"
 #import "AKCharactersLoader.h"
+#import "AKCharacter.h"
+#import "AKPersistenceStackHelper.h"
 
 @interface CharacterViewController ()
 @property (nonatomic, strong) AKCharactersLoader *loader;
+@property(nonatomic) IBOutlet UILabel *charLabel;
 @end
 
 @implementation CharacterViewController
@@ -20,10 +24,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.loader = [AKCharactersLoader new];
-    [self.loader loadCharacterWithId:@"1009368" andCompletion:^(id character) {
+    NSManagedObjectContext *context = [AKPersistenceStackHelper sharedHelper].managedObjectContext;
+    self.loader = [AKCharactersLoader loaderWithContext:context];
+    [self.loader loadCharacterWithId:@"1009368" andCompletion:^(AKCharacter  *character) {
         NSLog(@"%@", character);
+        self.charLabel.text = character.name;
     }];
+    //[[AKPersistenceStackHelper sharedHelper] save];
 }
 
 

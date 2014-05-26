@@ -4,7 +4,9 @@
 //
 
 
-typedef void (^success_block_t)(id JSON);
+@class AKResponse;
+
+typedef void (^success_block_t)(AKResponse *JSON);
 typedef void (^failure_block_t)(NSError *error);
 
 @interface AKNetworkManager : NSObject
@@ -14,6 +16,7 @@ typedef void (^failure_block_t)(NSError *error);
 
 + (instancetype)sharedManager;
 
-- (void)sendRequestWithParams:(NSDictionary *)params WithSuccess:(success_block_t)successBlock andFailure:(failure_block_t)failureBlock;
+- (void)sendRequestWithPath:(NSString *)path params:(NSDictionary *)params
+                WithSuccess:(success_block_t)successBlock andFailure:(failure_block_t)failureBlock;
 
 @end
